@@ -3,36 +3,51 @@
 [![Build Status](https://travis-ci.org/openstf/stf.svg?branch=master)](https://travis-ci.org/openstf/stf)
 [![Docker Pulls](https://img.shields.io/docker/pulls/openstf/stf.svg)](https://hub.docker.com/r/openstf/stf/)
 [![NPM version](https://img.shields.io/npm/v/stf.svg)](https://www.npmjs.com/package/stf)
+[![Backers on Open Collective](https://opencollective.com/openstf/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/openstf/sponsors/badge.svg)](#sponsors)
 
 **STF** (or Smartphone Test Farm) is a web application for debugging smartphones, smartwatches and other gadgets remotely, from the comfort of your browser.
 
-STF was originally developed at [CyberAgent](https://www.cyberagent.co.jp/en/) to control a growing collection of more than 160 devices. As of July 2016 development is mainly sponsored by [HeadSpin](https://performance.headspin.io/) and [other individual contributors](https://www.bountysource.com/teams/openstf).
+STF was originally developed at [CyberAgent](https://www.cyberagent.co.jp/en/) to control a growing collection of more than 160 devices. As of July 2016 development is mainly sponsored by [HeadSpin](https://performance.headspin.io/) and [other individual contributors](https://opencollective.com/openstf).
 
-Please visit [our  BountySource](https://salt.bountysource.com/teams/openstf) if you'd like to support future development. How are your donations being used? Check out our [donation transparency report](DONATION-TRANSPARENCY.md).
+We  welcome financial contributions in full transparency on our [open collective](https://opencollective.com/openstf).
 
 ![Close-up of device shelf](doc/shelf_closeup_790x.jpg?raw=true)
 
 ![Super short screencast showing usage](doc/7s_usage.gif?raw=true)
 
-## Sponsors
+## Credits
 
-### Gold Sponsor
+### Sponsors
 
-[<img src="doc/sponsors/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://performance.headspin.io/)
+Thank you to all our sponsors! (please ask your company to also support this open source project by [becoming a sponsor](https://opencollective.com/openstf#sponsor))
 
-> [HeadSpin](https://performance.headspin.io/) enables developers launch high quality and high performing apps Worldwide. Using HeadSpin’s global distributed device cloud infrastructure, developers can test and monitor their apps instantly on 1,500 global cell networks and local devices. HeadSpin seamlessly plugs into your development workflow with no code changes to your apps.
+#### Gold Sponsor
+
+[<img src="doc/sponsors/headspin-wordmark-orange.png?raw=true" alt="HeadSpin" width="400">](https://ui.headspin.io/register?referral=start-testing-hs)
+
+> [HeadSpin](https://headspin.io/) provides secure and scalable STF for iOS integrated with Appium/XCTest/Selenium/Espresso, High speed interaction Audio/Video/Game testing and AI based Root cause analysis for Performance Management. It's free to start using HeadSpin in 150+ locations worldwide! [Try it out for free.](https://ui.headspin.io/register?referral=start-testing-hs)
 
 HeadSpin offers a generous monthly contribution towards STF development.
 
+### Contributors
+Thank you to all the people who have already contributed to STF!
+<a href="../../graphs/contributors"><img src="https://opencollective.com/openstf/contributors.svg?width=890" /></a>
+
+### Backers
+Thank you to all our backers! [[Become a backer](https://opencollective.com/openstf#backer)]
+
+<a href="https://opencollective.com/openstf#backers" target="_blank"><img src="https://opencollective.com/openstf/backers.svg?width=890"></a>
+
+
 ### How to become a sponsor
 
-Please [contact us][contact-link] for sponsor arrangements. Both recurring and one-time contributions are most welcome. Contributions towards a specific issue or feature are also possible, and can be attributed to your company in our release notes and other related materials. Hardware-only contributions, whether new or used, are also extremely helpful and well received, especially if you find a device that doesn't work. Please see our [donation transparency report](DONATION-TRANSPARENCY.md) for past hardware contributions.
+Please use our [open collective](https://opencollective.com/openstf#sponsor) or [contact us][contact-link] directly for sponsor arrangements. Both recurring and one-time contributions are most welcome. Contributions towards a specific issue or feature are also possible, and can be attributed to your company in our release notes and other related materials. Hardware-only contributions, whether new or used, are also extremely helpful and well received, especially if you find a device that doesn't work. Please see our [donation transparency report](DONATION-TRANSPARENCY.md) for past hardware contributions.
 
 ## Features
 
 * OS support
   - Android
-    * Supports versions 2.3.3 (SDK level 10) to 8.1 (SDK level 27)
+    * Supports versions 2.3.3 (SDK level 10) to 9.0 (SDK level 28)
     * Supports Wear 5.1 (but not 5.0 due to missing permissions)
     * Supports Fire OS, CyanogenMod, and other heavily Android based distributions
     * `root` is **not** required for any current functionality
@@ -60,15 +75,41 @@ Please [contact us][contact-link] for sponsor arrangements. Both recurring and o
     * Supports [Chrome remote debug tools](https://developer.chrome.com/devtools/docs/remote-debugging)
   - File Explorer to access device file system
   - Experimental VNC support (work in progress)
-* Manage your device inventory
+* Monitor your device inventory
   - See which devices are connected, offline/unavailable (indicating a weak USB connection), unauthorized or unplugged
   - See who's using a device
-  - Search devices by phone number, IMEI, ICCID, Android version, operator, product name and/or many other attributes with easy but powerful queries
+  - Search devices by phone number, IMEI, ICCID, Android version, operator, product name, group name and/or many other attributes with easy but powerful queries
   - Show a bright red screen with identifying information on a device you need to locate physically
   - Track battery level and health
   - Rudimentary Play Store account management
     * List, remove and add new accounts (adding may not work on all devices)
   - Display hardware specs
+* Use the Booking & Partitioning systems
+  - Overview
+    * The partitioning system allow you `[administrator level]` to allocate distinct sets of devices to different projects or organizations (i.e. represented by user sets) for an unlimited period
+    * The booking system allows you to reserve a set of devices for a set of users during a limited time (e.g. from 3:00 am to 4:00 am during 5 days)
+    * What is common to the booking & partitioning systems is the concept of Group, that is, an association of devices, users and a specification of time
+    * Report to [GroupFeature.pdf](doc/GroupFeature.pdf) for detailed documentation on how to use this feature
+  - Monitor your group inventory
+    * See which groups are active, ready or pending, as well as other group properties: name, identifier, owner, devices, users, class, duration, repetition, starting date, expiration date
+    * Search groups by their property values
+    * Contact by email the owners of the selected groups 
+  - Manage your groups
+    * Create a group by specifying its name, devices, users and schedule
+    * Get ready your group in order it is scheduled by the system
+    * Search groups by their property values
+    * Remove your group or a selection of your groups
+    * Contact by email the owners of the selected groups `[administrator level]`
+* Manage the devices `[administrator level]`
+  - Search the devices by their property values
+  - Remove a  device or a selection of devices meeting a set of filters: present, booked, annotated, controlled
+* Manage the users `[administrator level]`
+  - Create a user by providing his name and his email
+  - Search the users by their property values
+  - Remove a user or a selection of users meeting a set of filters: group owner
+  - Contact a user or a selection of users by email
+  - Set the default groups quotas applicable to all users
+  - Set the groups quotas applicable to a specific user
 * Simple REST [API](doc/API.md)
 
 ## Status
@@ -99,7 +140,7 @@ As the product has evolved from an internal tool running in our internal network
 
 ## Requirements
 
-* [Node.js](https://nodejs.org/) >= 6.9 (latest stable version preferred)
+* [Node.js](https://nodejs.org/) 8.x **required** (some dependencies don't support newer versions)
 * [ADB](http://developer.android.com/tools/help/adb.html) properly set up
 * [RethinkDB](http://rethinkdb.com/) >= 2.2
 * [GraphicsMagick](http://www.graphicsmagick.org/) (for resizing screenshots)
@@ -167,6 +208,19 @@ rethinkdb
 _Note: if it takes a long time for RethinkDB to start up, you may be running into [rethinkdb/rethinkdb#4600](https://github.com/rethinkdb/rethinkdb/issues/4600) (or [rethinkdb/rethinkdb#6047](https://github.com/rethinkdb/rethinkdb/issues/6047)). This usually happens on macOS Sierra. To fix this on macOS, first run `scutil --get HostName` to check if the HostName variable is unset. RethinkDB needs it to generate a server name for your instance. If you find that it's empty, running `sudo scutil --set HostName $(hostname)` has been confirmed to fix the issue on at least one occasion. See the issues for more complete solutions._
 
 You should now have RethinkDB running locally. Running the command again in the same folder will reuse the data from the previous session.
+
+An administrator level is available in STF in addition of the native user one, with increased rights on some features (e.g.  booking & partitioning systems, management of users & devices, ...). The corresponding built-in administrator user has the following default credentials:
+- name: `administrator`
+- email: `administrator@fakedomain.com`
+
+Another built-in object exists, this is the root standard group to which the users and devices belong the first time they register to the STF database, its default name is `Common`
+
+These built-in objects are created in the STF database if they do not already exist 
+
+Of course, you can override the default values of these built-in objects by settings the following environment variables before to initialize the STF database through `stf local` or `stf migrate` commands:
+-	root standard group name: `STF_ROOT_GROUP_NAME` 
+-	administrator user name: `STF_ADMIN_NAME`
+-	administrator user email: `STF_ADMIN_EMAIL`
 
 You're now ready to start up STF itself:
 
